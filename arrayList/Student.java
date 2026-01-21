@@ -1,5 +1,7 @@
 package arrayList;
 
+import java.util.Objects;
+
 public class Student {
 	String name;
 	int id;
@@ -13,6 +15,17 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", id=" + id + "]";
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return id == other.id && Objects.equals(name, other.name);
 	}
 	
 }
